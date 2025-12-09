@@ -29,7 +29,7 @@ module.exports = {
       // 2. Run npm install inside the build folder
       console.log(`Installing production dependencies in ${buildPath} for ${platform} ${arch}...`);
       try {
-        await exec(`npm install --omit=dev --no-bin-links --arch=${arch} --platform=${platform}`, {
+        await exec(`npm install --omit=dev --no-bin-links`, {
           cwd: buildPath
         });
         console.log("Production dependencies installed successfully.");

@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  release-linux:
+  linux-x64:
     runs-on: ubuntu-latest
     steps:
     - name: 'Cleanup build folder'
@@ -39,7 +39,7 @@ jobs:
     - run: npm ci
 
     - name: Build deb binary
-      run: make deb
+      run: make deb-x64
 
     - run: gh auth status
       env:
@@ -51,11 +51,54 @@ jobs:
       run: |
         VERSION=$(git describe --tags --always)
         gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
-        gh release upload "$VERSION" out/make/deb/**/*.deb --clobber
+        gh release upload "$VERSION" out/make/deb/**/*amd64.deb --clobber
+
+  linux-arm64:
+      runs-on: ubuntu-24.04-arm
+      steps:
+      - name: 'Cleanup build folder'
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
+      - name: Install Build Essential and Git
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential
+          sudo apt install -y git
+      # Change the submodule url to HTTPS url
+      - name: Checkout the repo including submodules
+        uses: actions/checkout@v4
+
+      # Nodejs
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build deb binary
+        run: make deb-arm64
+
+      - run: gh auth status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(git describe --tags --always)
+          gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
+           gh release upload "$VERSION" out/make/deb/**/*arm64.deb --clobber
 
 
 
-  release-windows:
+
+  windows-x64:
     runs-on: windows-latest
 
     defaults:
@@ -86,7 +129,50 @@ jobs:
     - run: npm ci
 
     - name: Build squirrel binary
-      run: make squirrel
+      run: make squirrel-x64
+      shell: pwsh
+
+    - name: Upload to GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        VERSION=$(git describe --tags --always)
+        gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
+        gh release upload "$VERSION" "out/make/squirrel.windows/**/*.exe" --clobber
+
+
+  windows-arm64:
+    runs-on: windows-11-arm
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+        
+    - name: 'Cleanup build folder'
+      run: |
+        ls -la ./
+        rm -rf ./* || true
+        rm -rf ./.??* || true
+        ls -la ./
+    - name: Checkout the repo including submodules
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
+    # Nodejs
+    - name: Use Node.js 22.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+        cache: 'npm'
+   
+    # Build Steps 
+    - run: npm ci
+
+    - name: Build squirrel binary
+      run: make squirrel-arm64
       shell: pwsh
 
     - name: Upload to GitHub Release
@@ -128,11 +214,7 @@ jobs:
     
     # Build Steps 
     - run: npm ci
-
     - run: node -p process.arch
-
-   
-
     - name: Build dmg binary
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}

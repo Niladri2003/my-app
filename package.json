@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "productName": "my-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
@@ -20,7 +20,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
-  
+
   "keywords": [],
   "author": {
     "name": "Niladri2003",
