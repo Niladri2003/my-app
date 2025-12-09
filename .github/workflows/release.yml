@@ -1,5 +1,9 @@
 name: Build Release for Linux / Windows / Mac
 
+
+permissions:
+  contents: write 
+
 on:
   release:
     types: [created]
@@ -37,6 +41,10 @@ jobs:
     - name: Build deb binary
       run: make deb
 
+    - run: gh auth status
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload to GitHub Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,6 +70,11 @@ jobs:
         rm -rf ./* || true
         rm -rf ./.??* || true
         ls -la ./
+    - name: Checkout the repo including submodules
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
     # Nodejs
     - name: Use Node.js 22.x
       uses: actions/setup-node@v4
