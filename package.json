@@ -8,6 +8,9 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "make:dmg:arm64": "DEBUG=electron-osx-sign*,electron-packager npm run make -- --platform darwin --targets @electron-forge/maker-dmg --arch arm64",
+    "make:dmg:x64": "DEBUG=electron-osx-sign*,electron-packager npm run make -- --platform darwin --targets @electron-forge/maker-dmg --arch x64",
+    "make:dmg": "npm run make:dmg:arm64 && npm run make:dmg:x64",
     "make:squirrel:x64": "npm run make -- --platform win32 --targets @electron-forge/maker-squirrel --arch x64",
     "make:squirrel:arm64": "npm run make -- --platform win32 --targets @electron-forge/maker-squirrel --arch arm64",
     "make:squirrel": "npm run make:squirrel:x64 && npm run make:squirrel:arm64",
@@ -17,6 +20,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
+  
   "keywords": [],
   "author": {
     "name": "Niladri2003",

@@ -1,4 +1,4 @@
-name: Build Release and Upload to S3 for Linux
+name: Build Release for Linux / Windows / Mac
 
 on:
   release:
@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
+
   release-linux:
     runs-on: ubuntu-latest
     steps:
@@ -29,26 +30,21 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 22.x
-        cache: 'npm'
+        cache: npm
 
-    # Build Steps
     - run: npm ci
-   
 
     - name: Build deb binary
       run: make deb
-    - name: see directory
-      run: ls ./out/make/deb/x64/
-    
-    # Upload to S3
-    - name: Upload to S3
+
+    - name: Upload to GitHub Release
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: "ap-south-1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         VERSION=$(git describe --tags --always)
-        aws s3 cp out/make/deb/ s3://public.pinggy.binaries/app/$VERSION/linux --recursive
+        gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
+        gh release upload "$VERSION" out/make/deb/**/*.deb --clobber
+
 
 
   release-windows:
@@ -76,26 +72,23 @@ jobs:
     # Build Steps 
     - run: npm ci
 
-
     - name: Build squirrel binary
       run: make squirrel
       shell: pwsh
 
-    - name: see out directory
-      run: ls ./out/make/
-
-    # Upload to S3
-    - name: Upload squirrel to S3
+    - name: Upload to GitHub Release
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: "ap-south-1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         VERSION=$(git describe --tags --always)
-        aws s3 cp out/make/squirrel.windows/ s3://public.pinggy.binaries/app/$VERSION/windows --recursive
+        gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
+        gh release upload "$VERSION" "out/make/squirrel.windows/**/*.exe" --clobber
+
+
 
   release-mac:
-    runs-on: [self-hosted, macos]
+    runs-on: macos-latest
+
     steps:
         
     - name: 'Cleanup build folder'
@@ -107,9 +100,14 @@ jobs:
     # Change the submodule url to HTTPS url
     - name: Checkout the repo including submodules
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
 
-    # Nodejs
-    - name: Use Node.js 22.x
+    - name: Cleanup
+      run: rm -rf ./* || true
+
+    - name: Use Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 22.x
@@ -132,12 +130,10 @@ jobs:
     - name: see out directory
       run: ls ./out/make/
 
-    # Upload to S3
-    - name: Upload to S3
+    - name: Upload to GitHub Release
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: "ap-south-1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         VERSION=$(git describe --tags --always)
-        aws s3 cp out/make/mac/ s3://public.pinggy.binaries/app/$VERSION/mac --recursive
+        gh release create "$VERSION" --notes "Manual build" --title "$VERSION" || true
+        gh release upload "$VERSION" "out/make/mac/**/*.dmg" --clobber
