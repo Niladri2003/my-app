@@ -1,0 +1,52 @@
+2025-12-09T09:07:14.277Z [debug] Stats callback set up for tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+[2025-12-09 14:37:14] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/worker/tunnel-worker.js:76:18] Registered callback: tunnelPrimaryForwarding
+[2025-12-09 14:37:14] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/worker/tunnel-worker.js:76:18] Registered callback: tunnelUsage
+[2025-12-09 14:37:14] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/worker/tunnel-worker.js:76:18] Registered callback: tunnelError
+[2025-12-09 14:37:14] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/worker/tunnel-worker.js:76:18] Registered callback: tunnelDisconnected
+[2025-12-09 14:37:14] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:418:20] TunnelWorker ready.
+[2025-12-09 14:37:14] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:508:18] Unknown message from worker: {"type":"init","success":true,"error":null}
+2025-12-09T09:07:14.278Z [debug] Error callback set up for tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+2025-12-09T09:07:14.278Z [debug] Disconnect callback set up for tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+2025-12-09T09:07:14.278Z [debug] Disconnect callback set up for tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+2025-12-09T09:07:14.279Z [info] Tunnel created {"configid":"56f60101-e086-4701-85ed-472af73ee353","tunnelid":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+2025-12-09T09:07:14.279Z [info] Starting tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40"}
+[2025-12-09 14:37:14] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:start,target:tunnel,type:call,args,Id:eb13219a-91e3-444c-8e45-6e07819c0896
+[2025-12-09 14:37:14] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:,target:tunnel,type:getConfig,args,Id:fddc7bca-32ac-4dfe-b4a4-24acbe3684f7
+[2025-12-09 14:37:14] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/chunk-DADAWM6I.js:703:16] Tunnel connected, starting authentication monitoring...
+2025-12-09T09:07:15.033Z [debug] Queried tunnel status {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","status":"starting"}
+[2025-12-09 14:37:15] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getStatus,target:tunnel,type:call,args,Id:06dc63dc-1fef-43ec-8300-4fd63ba2c58d
+[2025-12-09 14:37:15] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getLocalServerTls,target:config,type:call,args,Id:c7ff103c-fb58-4348-9a89-0ac4edd7e867
+[2025-12-09 14:37:15] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getTunnelGreetMessage,target:tunnel,type:call,args,Id:97c45a2b-f659-4387-97d6-49a445f07fda
+[2025-12-09 14:37:15] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getUrls,target:tunnel,type:call,args,Id:e4e5dc16-6f09-4ad0-b7cc-7fc5e5ada9b3
+2025-12-09T09:07:15.034Z [debug] Queried tunnel URLs {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","urls":[]}
+[2025-12-09 14:37:16] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/chunk-DADAWM6I.js:539:18] Tunnel authenticated, requesting primary forwarding...
+2025-12-09T09:07:16.721Z [info] Tunnel started {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","urls":["http://zealp-103-135-228-176.a.free.pinggy.link","https://zealp-103-135-228-176.a.free.pinggy.link"]}
+[2025-12-09 14:37:16] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:1731:12] Handled worker callback: tunnelPrimaryForwarding
+[2025-12-09 14:37:18] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getUrls,target:tunnel,type:call,args,Id:2de02b94-a6d6-40ac-852b-7e7397113c43
+2025-12-09T09:07:18.927Z [debug] Queried tunnel URLs {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","urls":["http://zealp-103-135-228-176.a.free.pinggy.link","https://zealp-103-135-228-176.a.free.pinggy.link"]}
+[2025-12-09 14:37:18] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getStatus,target:tunnel,type:call,args,Id:5478f920-acef-4e0b-b121-fc8060b6e413
+[2025-12-09 14:37:18] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getLocalServerTls,target:config,type:call,args,Id:1b0a0363-24c2-4cdb-91d3-a33d458c86b5
+[2025-12-09 14:37:18] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getTunnelGreetMessage,target:tunnel,type:call,args,Id:a4750715-d959-416f-b0fc-9e472142ce2a
+2025-12-09T09:07:19.028Z [debug] Queried tunnel status {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","status":"live"}
+[2025-12-09 14:37:19] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:,target:tunnel,type:getConfig,args,Id:1142fefd-303c-41f4-862d-e349a99275d8
+[2025-12-09 14:37:20] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getUrls,target:tunnel,type:call,args,Id:d85f1d65-7987-46f6-a9f3-2ced77465997
+2025-12-09T09:07:20.904Z [debug] Queried tunnel URLs {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","urls":["http://zealp-103-135-228-176.a.free.pinggy.link","https://zealp-103-135-228-176.a.free.pinggy.link"]}
+[2025-12-09 14:37:20] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getStatus,target:tunnel,type:call,args,Id:469efa6f-cce1-4c21-bbcc-e51fba096cab
+[2025-12-09 14:37:20] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getLocalServerTls,target:config,type:call,args,Id:8fad46b4-e358-4add-9929-bcca318ef2cc
+[2025-12-09 14:37:20] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getTunnelGreetMessage,target:tunnel,type:call,args,Id:436c0fe5-d0db-4843-b07f-f732ec6fd46d
+2025-12-09T09:07:21.009Z [debug] Queried tunnel status {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","status":"live"}
+[2025-12-09 14:37:21] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:,target:tunnel,type:getConfig,args,Id:e99b905f-97ba-42bb-a241-dff594a744a9
+[2025-12-09 14:37:22] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getUrls,target:tunnel,type:call,args,Id:7fd4fa3c-7d3c-4567-bccf-3bef6443ef90
+2025-12-09T09:07:22.912Z [debug] Queried tunnel URLs {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","urls":["http://zealp-103-135-228-176.a.free.pinggy.link","https://zealp-103-135-228-176.a.free.pinggy.link"]}
+[2025-12-09 14:37:22] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getStatus,target:tunnel,type:call,args,Id:8076c60d-b905-4879-97ee-84eb224c2bb8
+[2025-12-09 14:37:22] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getLocalServerTls,target:config,type:call,args,Id:45de1700-dbef-4944-acda-7c8a937aade0
+[2025-12-09 14:37:22] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:getTunnelGreetMessage,target:tunnel,type:call,args,Id:2e61657d-8a69-4426-91f2-b30f4842e063
+2025-12-09T09:07:23.012Z [debug] Queried tunnel status {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","status":"live"}
+[2025-12-09 14:37:23] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:,target:tunnel,type:getConfig,args,Id:ffd8d5c6-92c5-4b01-b683-deba7501af8f
+2025-12-09T09:07:23.504Z [info] Stopping tunnel {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","configId":"56f60101-e086-4701-85ed-472af73ee353"}
+2025-12-09T09:07:23.505Z [info] Tunnel stopped {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","configId":"56f60101-e086-4701-85ed-472af73ee353"}
+2025-12-09T09:07:23.506Z [error] Tunnel "ed648297-35bc-41e2-aa0e-986dbd016a40" not found when fetching URLs 
+[2025-12-09 14:37:23] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:453:12] [Main] Sending method call to worker thread method:tunnelStop,target:tunnel,type:call,args,Id:7b19f1b2-1782-42de-9819-771eb4132d02
+[2025-12-09 14:37:23] [INFO] [file:///home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/chunk-DADAWM6I.js:813:18] Tunnel stopped successfully.
+2025-12-09T09:07:23.533Z [debug] Error in Tunnel Worker {"tunnelId":"ed648297-35bc-41e2-aa0e-986dbd016a40","errorMessage":"Tunnel Worker exited with error code 1"}
+[2025-12-09 14:37:23] [INFO] [/home/niladri/Desktop/my-app/node_modules/@pinggy/pinggy/dist/index.cjs:522:14] TunnelWorker exited with code 1
