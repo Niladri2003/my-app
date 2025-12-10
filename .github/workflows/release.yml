@@ -115,9 +115,7 @@ jobs:
         ls -la ./
     - name: Checkout the repo including submodules
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        submodules: recursive
+    
     # Nodejs
     - name: Use Node.js 22.x
       uses: actions/setup-node@v4
@@ -156,11 +154,9 @@ jobs:
         rm -rf ./* || true
         rm -rf ./.??* || true
         ls -la ./
-    - name: Checkout the repo including submodules
+    - name: Checkout the repo 
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        submodules: recursive
+
     # Nodejs
     - name: Use Node.js 22.x
       uses: actions/setup-node@v4
@@ -197,14 +193,8 @@ jobs:
         rm -rf ./.??* || true
         ls -la ./
     # Change the submodule url to HTTPS url
-    - name: Checkout the repo including submodules
+    - name: Checkout the repo
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        submodules: recursive
-
-    - name: Cleanup
-      run: rm -rf ./* || true
 
     - name: Use Node.js
       uses: actions/setup-node@v4
